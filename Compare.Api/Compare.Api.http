@@ -1,0 +1,6 @@
+@Compare.Api_HostAddress = http://localhost:5047
+
+GET {{Compare.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

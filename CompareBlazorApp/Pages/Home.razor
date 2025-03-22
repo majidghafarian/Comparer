@@ -1,0 +1,51 @@
+﻿@page "/"
+@using Application.Models
+ @using CompareBlazorApp.Services
+@using Domain
+@inject CompareService CompareService
+
+<h3>مقایسه مقادیر</h3>
+
+<EditForm Model="compareRequest" OnValidSubmit="Compare">
+    <DataAnnotationsValidator />
+
+    <label>نام قدیم:</label>
+    <InputText @bind-Value="compareRequest.OldObject.Name" />
+    <br />
+
+    <label>نام جدید:</label>
+    <InputText @bind-Value="compareRequest.NewObject.Name" />
+    <br />
+
+    <label>سن قدیم:</label>
+    <InputNumber @bind-Value="compareRequest.OldObject.Age" />
+    <br />
+
+    <label>سن جدید:</label>
+    <InputNumber @bind-Value="compareRequest.NewObject.Age" />
+    <br />
+
+    <button type="submit">ثبت</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(Result))
+{
+    <p><strong>نتیجه مقایسه:</strong></p>
+    <p dir="rtl">@Result</p>
+
+}
+
+@code {
+    private CompareRequest<Employe> compareRequest = new()
+        {
+            OldObject = new Employe(),
+            NewObject = new Employe()
+        };
+
+    private string Result;
+
+    private async Task Compare()
+    {
+        Result = await CompareService.CompareObjects(compareRequest);
+    }
+}
