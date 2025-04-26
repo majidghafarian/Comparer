@@ -20,44 +20,92 @@ namespace Infrastructure.Service
             _logger = logger;
         }
 
-        public string CompareAndLogChanges<T>(T oldObject, T newObject)
-        {
+      
 
-            if (oldObject == null || newObject == null)
+        public List<string> CompareByKey<T>(List<T> oldList, List<T> newList, string keyName, string prefix = "")
+        {
+            var changes = new List<string>();
+
+            if (oldList == null || newList == null)
             {
-                _logger.LogWarning("Objects cannot be null.");
-                return "Objects cannot be null.";
+                changes.Add($"{prefix} یکی از لیست‌ها نال است.");
+                return changes;
             }
 
-            Type type = typeof(T);
-            PropertyInfo[] properties = type.GetProperties();
-            StringBuilder log = new StringBuilder();
-
-            foreach (var prop in properties)
+            var type = typeof(T);
+            var keyProp = type.GetProperty(keyName, BindingFlags.Public | BindingFlags.Instance);
+            if (keyProp == null)
             {
-                if (!prop.CanRead) continue; // بررسی می‌کنیم که خاصیت قابل خواندن باشد
+                throw new ArgumentException($"پراپرتی کلید '{keyName}' در نوع '{type.Name}' پیدا نشد.");
+            }
 
-                object oldValue = prop.GetValue(oldObject);
-                object newValue = prop.GetValue(newObject);
-                string oldValueString = oldValue?.ToString()?.ToLower();
-                string newValueString = newValue?.ToString()?.ToLower();
+            // تبدیل لیست‌ها به دیکشنری براساس کلید
+            var oldDict = oldList
+                .Where(x => keyProp.GetValue(x) != null)
+                .ToDictionary(x => keyProp.GetValue(x)!.ToString()!, x => x);
 
-                if ((oldValueString == null && newValueString != null) || (oldValueString != null && !oldValueString.Equals(newValueString)))
+            var newDict = newList
+                .Where(x => keyProp.GetValue(x) != null)
+                .ToDictionary(x => keyProp.GetValue(x)!.ToString()!, x => x);
+
+            // بررسی آبجکت‌های موجود در old
+            foreach (var oldItem in oldDict)
+            {
+                if (!newDict.ContainsKey(oldItem.Key))
                 {
-                    var trackChangesAttribute = prop.GetCustomAttribute<TrackChangesAttribute>();
-                    string changeDescription = trackChangesAttribute?.Description ?? prop.Name;
-                    string logEntry = $"{changeDescription} تغییر کرد از '{oldValue?.ToString() ?? "null"}' به '{newValue?.ToString() ?? "null"}'";
-                    log.AppendLine(logEntry);
-                    _logger.LogInformation(logEntry);
+                    changes.Add($"{prefix} آیتم با کلید {oldItem.Key} حذف شده.");
+                }
+                else
+                {
+                    // اگر کلید مشترک باشد، بریم فیلدها را چک کنیم
+                    changes.AddRange(CompareObjects(oldItem.Value, newDict[oldItem.Key], $"{prefix}({keyName}={oldItem.Key}) "));
                 }
             }
 
-            string logResult = log.Length == 0 ? "چیزی تغییر نکرد." : log.ToString();
+            // بررسی آیتم‌های جدیدی که قبلاً وجود نداشتند
+            foreach (var newItem in newDict)
+            {
+                if (!oldDict.ContainsKey(newItem.Key))
+                {
+                    changes.Add($"{prefix} آیتم جدید با کلید {newItem.Key} اضافه شده.");
+                }
+            }
 
-            if (log.Length == 0)
-                _logger.LogInformation("چیزی تغییر نکرد.");
+            return changes;
+        }
 
-            return logResult;
+        public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "")
+        {
+            var changes = new List<string>();
+
+            if (oldObj == null || newObj == null)
+            {
+                changes.Add($"{prefix} یکی از آبجکت‌ها نال است.");
+                return changes;
+            }
+
+            var type = typeof(T);
+            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (var prop in properties)
+            {
+                var oldValue = prop.GetValue(oldObj);
+                var newValue = prop.GetValue(newObj);
+
+                if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
+                {
+                    continue; // لیست‌ها را اینجا مدیریت نمی‌کنیم (جلوتر میتونیم سفارشی کنیم)
+                }
+
+                if ((oldValue == null && newValue != null) ||
+                    (oldValue != null && newValue == null) ||
+                    (oldValue != null && !oldValue.Equals(newValue)))
+                {
+                    changes.Add($"{prefix}{prop.Name} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                }
+            }
+
+            return changes;
         }
     }
 }
