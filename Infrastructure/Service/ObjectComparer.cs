@@ -14,41 +14,27 @@ namespace Infrastructure.Service
     {
 
         private readonly ILogger<ObjectComparer> _logger;
+        private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> _propertyCache = new();
 
         public ObjectComparer(ILogger<ObjectComparer> logger)
         {
             _logger = logger;
         }
 
-      
 
-        public List<string> CompareByKey<T>(List<T> oldList, List<T> newList, string keyName, string prefix = "")
+
+        public List<string> CompareByKey(IEnumerable<object> oldList, IEnumerable<object> newList, string keyName, string prefix = "")
         {
             var changes = new List<string>();
 
-            if (oldList == null || newList == null)
-            {
-                changes.Add($"{prefix} یکی از لیست‌ها نال است.");
-                return changes;
-            }
-
-            var type = typeof(T);
-            var keyProp = type.GetProperty(keyName, BindingFlags.Public | BindingFlags.Instance);
-            if (keyProp == null)
-            {
-                throw new ArgumentException($"پراپرتی کلید '{keyName}' در نوع '{type.Name}' پیدا نشد.");
-            }
-
-            // تبدیل لیست‌ها به دیکشنری براساس کلید
             var oldDict = oldList
-                .Where(x => keyProp.GetValue(x) != null)
-                .ToDictionary(x => keyProp.GetValue(x)!.ToString()!, x => x);
+                .Where(x => GetKeyValue(x, keyName) != null)
+                .ToDictionary(x => GetKeyValue(x, keyName)!.ToString()!, x => x);
 
             var newDict = newList
-                .Where(x => keyProp.GetValue(x) != null)
-                .ToDictionary(x => keyProp.GetValue(x)!.ToString()!, x => x);
+                .Where(x => GetKeyValue(x, keyName) != null)
+                .ToDictionary(x => GetKeyValue(x, keyName)!.ToString()!, x => x);
 
-            // بررسی آبجکت‌های موجود در old
             foreach (var oldItem in oldDict)
             {
                 if (!newDict.ContainsKey(oldItem.Key))
@@ -57,12 +43,10 @@ namespace Infrastructure.Service
                 }
                 else
                 {
-                    // اگر کلید مشترک باشد، بریم فیلدها را چک کنیم
-                    changes.AddRange(CompareObjects(oldItem.Value, newDict[oldItem.Key], $"{prefix}({keyName}={oldItem.Key}) "));
+                    changes.AddRange(CompareObjects(oldItem.Value, newDict[oldItem.Key], $"{prefix}({keyName}={oldItem.Key}) ", keyName));
                 }
             }
 
-            // بررسی آیتم‌های جدیدی که قبلاً وجود نداشتند
             foreach (var newItem in newDict)
             {
                 if (!oldDict.ContainsKey(newItem.Key))
@@ -74,7 +58,89 @@ namespace Infrastructure.Service
             return changes;
         }
 
-        public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "")
+      
+        private object GetKeyValue(object obj, string keyName)
+        {
+            if (obj == null || string.IsNullOrEmpty(keyName))
+                return null;
+
+            var type = obj.GetType();
+
+            // چک کردن کش: آیا قبلاً پراپرتی های این تایپ ذخیره شده؟
+            if (!_propertyCache.TryGetValue(type, out var properties))
+            {
+                // اگر نبوده، پراپرتی ها را بخوان و بریز داخل کش
+                properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                                 .ToDictionary(p => p.Name, p => p, StringComparer.OrdinalIgnoreCase);
+
+                _propertyCache[type] = properties;
+            }
+
+            // حالا سعی کن پراپرتی مورد نظر رو از کش پیدا کنی
+            if (properties.TryGetValue(keyName, out var propertyInfo))
+            {
+                return propertyInfo.GetValue(obj);
+            }
+
+            // اگر پراپرتی نبود (مثلا keyName اشتباه فرستاده شده بود)
+            return null;
+        }
+
+        //public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "", string keyName = "Id")
+        //{
+        //    var changes = new List<string>();
+
+        //    if (oldObj == null || newObj == null)
+        //    {
+        //        changes.Add($"{prefix} یکی از آبجکت‌ها نال است.");
+        //        return changes;
+        //    }
+
+        //    var type = typeof(T);
+        //    var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+        //    foreach (var prop in properties)
+        //    {
+        //        var oldValue = prop.GetValue(oldObj);
+        //        var newValue = prop.GetValue(newObj);
+
+        //        if (oldValue == null && newValue == null)
+        //            continue;
+
+        //        if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
+        //        {
+        //            // مقایسه لیست ها
+        //            var oldList = (oldValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
+        //            var newList = (newValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
+
+        //            if (oldList.Any() || newList.Any())
+        //            {
+        //                // اگر داخل لیست چیزی بود، مقایسه کن
+        //                changes.AddRange(CompareByKey(oldList, newList, keyName, $"{prefix}{prop.Name}->"));
+        //            }
+        //            continue;
+        //        }
+
+        //        if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string))
+        //        {
+        //            // اگر کلاس بود (نه لیست)، مقایسه آبجکتی انجام بده
+        //            changes.AddRange(CompareObjects(oldValue, newValue, $"{prefix}{prop.Name}->", keyName));
+        //            continue;
+        //        }
+
+        //        // مقایسه فیلدهای ساده
+        //        if ((oldValue == null && newValue != null) ||
+        //            (oldValue != null && newValue == null) ||
+        //            (oldValue != null && !oldValue.Equals(newValue)))
+        //        {
+        //            changes.Add($"{prefix}{prop.Name} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+        //        }
+        //    }
+
+        //    return changes;
+        //}
+
+        public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "", string keyName = "Id")
         {
             var changes = new List<string>();
 
@@ -84,7 +150,7 @@ namespace Infrastructure.Service
                 return changes;
             }
 
-            var type = typeof(T);
+            var type = oldObj.GetType(); // 👈 اینجا باید نوع واقعی آبجکت رو بگیری
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var prop in properties)
@@ -92,9 +158,25 @@ namespace Infrastructure.Service
                 var oldValue = prop.GetValue(oldObj);
                 var newValue = prop.GetValue(newObj);
 
+                if (oldValue == null && newValue == null)
+                    continue;
+
                 if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
                 {
-                    continue; // لیست‌ها را اینجا مدیریت نمی‌کنیم (جلوتر میتونیم سفارشی کنیم)
+                    var oldList = (oldValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
+                    var newList = (newValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
+
+                    if (oldList.Any() || newList.Any())
+                    {
+                        changes.AddRange(CompareByKey(oldList, newList, keyName, $"{prefix}{prop.Name}->"));
+                    }
+                    continue;
+                }
+
+                if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string))
+                {
+                    changes.AddRange(CompareObjects(oldValue, newValue, $"{prefix}{prop.Name}->", keyName));
+                    continue;
                 }
 
                 if ((oldValue == null && newValue != null) ||
@@ -107,5 +189,7 @@ namespace Infrastructure.Service
 
             return changes;
         }
+
+
     }
 }

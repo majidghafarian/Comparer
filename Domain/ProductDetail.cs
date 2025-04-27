@@ -13,8 +13,8 @@ namespace Domain
         public int Id { get; set; }
         public string Feature { get; set; }
         public string Value { get; set; }
-       
-        public int productid { get; set; }
+        [JsonIgnore]
+        public int? productid { get; set; }
         [ForeignKey("productid")]
         [JsonIgnore]
         public Product? product { get; set; }

@@ -1,0 +1,236 @@
+2025-04-27 09:24:29.590 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 09:24:29.642 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 09:24:29.646 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 09:24:29.646 +03:30 [INF] Hosting environment: Development
+2025-04-27 09:24:29.647 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 09:24:33.558 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger - -
+2025-04-27 09:24:33.692 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger - - - 301 0 - 135.6824ms
+2025-04-27 09:24:33.738 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 09:24:34.105 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 366.9516ms
+2025-04-27 09:24:34.187 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/swagger-ui-bundle.js - -
+2025-04-27 09:24:34.187 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/swagger-ui-standalone-preset.js - -
+2025-04-27 09:24:34.187 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - -
+2025-04-27 09:24:34.182 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/swagger-ui.css - -
+2025-04-27 09:24:34.194 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - -
+2025-04-27 09:24:34.205 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 17.2425ms
+2025-04-27 09:24:34.298 +03:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-04-27 09:24:34.298 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/swagger-ui-standalone-preset.js - - - 200 230280 text/javascript 110.7180ms
+2025-04-27 09:24:34.298 +03:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-04-27 09:24:34.298 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/swagger-ui.css - - - 200 152034 text/css 116.4196ms
+2025-04-27 09:24:34.421 +03:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-04-27 09:24:34.421 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/swagger-ui-bundle.js - - - 200 1456926 text/javascript 233.6655ms
+2025-04-27 09:24:34.599 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 404.4497ms
+2025-04-27 09:24:34.723 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - -
+2025-04-27 09:24:34.761 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/favicon-32x32.png - -
+2025-04-27 09:24:34.762 +03:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-04-27 09:24:34.762 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/favicon-32x32.png - - - 200 628 image/png 1.1375ms
+2025-04-27 09:24:34.997 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 274.5850ms
+2025-04-27 09:27:27.521 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 465
+2025-04-27 09:27:27.530 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:27:27.531 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:27:27.541 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:27:27.589 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:27:27.711 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-04-27 09:27:27.729 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 134.0732ms
+2025-04-27 09:27:27.732 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:27:27.732 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 465 - 400 - application/problem+json;+charset=utf-8 211.2139ms
+2025-04-27 09:31:19.466 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 465
+2025-04-27 09:31:19.482 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:31:19.482 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:31:19.482 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:31:19.483 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:31:19.486 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-04-27 09:31:19.486 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 3.2623ms
+2025-04-27 09:31:19.487 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:31:19.487 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 465 - 400 - application/problem+json;+charset=utf-8 20.3387ms
+2025-04-27 09:36:59.891 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 585
+2025-04-27 09:36:59.904 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:36:59.906 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:36:59.906 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:36:59.906 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:37:00.171 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 09:37:00.184 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7.3415ms.
+2025-04-27 09:37:00.185 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 09:37:00.186 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 279.5842ms
+2025-04-27 09:37:00.186 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:37:00.186 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 585 - 200 - application/json;+charset=utf-8 295.4002ms
+2025-04-27 09:37:01.628 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 585
+2025-04-27 09:37:01.628 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:37:01.628 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:37:01.628 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:37:01.628 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:37:01.672 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 09:37:01.673 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.1584ms.
+2025-04-27 09:37:01.673 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 09:37:01.673 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 44.5585ms
+2025-04-27 09:37:01.673 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:37:01.673 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 585 - 200 - application/json;+charset=utf-8 45.3894ms
+2025-04-27 09:37:26.592 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 585
+2025-04-27 09:37:26.592 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:37:26.592 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:37:26.592 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:37:26.592 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:37:26.638 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 09:37:26.638 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0416ms.
+2025-04-27 09:37:26.652 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 09:37:26.653 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 60.6877ms
+2025-04-27 09:37:26.653 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:37:26.653 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 585 - 200 - application/json;+charset=utf-8 61.7320ms
+2025-04-27 09:43:05.862 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 708
+2025-04-27 09:43:05.862 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:43:05.862 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:43:05.863 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:43:05.863 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:43:05.901 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 09:43:05.902 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0711ms.
+2025-04-27 09:43:05.902 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 09:43:05.902 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 39.2105ms
+2025-04-27 09:43:05.902 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:43:05.902 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 708 - 200 - application/json;+charset=utf-8 40.3659ms
+2025-04-27 09:43:49.780 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 708
+2025-04-27 09:43:49.780 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:43:49.780 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:43:49.780 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:43:49.780 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:43:49.832 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 09:53:46.332 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 09:53:46.380 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 09:53:46.382 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 09:53:46.383 +03:30 [INF] Hosting environment: Development
+2025-04-27 09:53:46.383 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 09:53:50.276 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 09:53:51.188 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 926.8822ms
+2025-04-27 09:53:51.381 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - -
+2025-04-27 09:53:51.381 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - -
+2025-04-27 09:53:51.388 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 7.8396ms
+2025-04-27 09:53:51.501 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 120.7054ms
+2025-04-27 09:53:51.785 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - -
+2025-04-27 09:53:52.166 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 380.1410ms
+2025-04-27 09:54:00.044 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 708
+2025-04-27 09:54:00.051 +03:30 [INF] CORS policy execution failed.
+2025-04-27 09:54:00.051 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 09:54:00.083 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:54:00.123 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 09:54:00.547 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 09:54:09.453 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 8894.0452ms.
+2025-04-27 09:54:09.464 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 09:54:09.477 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 9350.1112ms
+2025-04-27 09:54:09.477 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 09:54:09.478 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 708 - 200 - application/json;+charset=utf-8 9433.8511ms
+2025-04-27 10:18:20.425 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 10:18:20.470 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 10:18:20.473 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 10:18:20.473 +03:30 [INF] Hosting environment: Development
+2025-04-27 10:18:20.473 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 10:18:24.165 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 10:18:25.534 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 1372.9219ms
+2025-04-27 10:18:25.830 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - -
+2025-04-27 10:18:25.970 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 140.3371ms
+2025-04-27 10:18:25.971 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - -
+2025-04-27 10:18:27.525 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 1554.0498ms
+2025-04-27 10:18:27.763 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - -
+2025-04-27 10:18:28.684 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 920.0934ms
+2025-04-27 10:19:25.928 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 939
+2025-04-27 10:19:25.950 +03:30 [INF] CORS policy execution failed.
+2025-04-27 10:19:25.951 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 10:19:25.960 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:19:26.000 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 10:19:26.124 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-04-27 10:19:26.136 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 131.8318ms
+2025-04-27 10:19:26.138 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:19:26.138 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 939 - 400 - application/problem+json;+charset=utf-8 209.9572ms
+2025-04-27 10:38:57.772 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 10:38:57.909 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 10:38:57.912 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 10:38:57.912 +03:30 [INF] Hosting environment: Development
+2025-04-27 10:38:57.912 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 10:39:01.154 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 10:39:02.020 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 862.7159ms
+2025-04-27 10:39:02.100 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - -
+2025-04-27 10:39:02.100 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - -
+2025-04-27 10:39:02.172 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 71.7485ms
+2025-04-27 10:39:02.531 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 430.9285ms
+2025-04-27 10:39:02.661 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - -
+2025-04-27 10:39:02.915 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 253.6177ms
+2025-04-27 10:39:10.023 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 669
+2025-04-27 10:39:10.060 +03:30 [INF] CORS policy execution failed.
+2025-04-27 10:39:10.061 +03:30 [INF] Request origin https://localhost:7060 does not have permission to access the resource.
+2025-04-27 10:39:10.106 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:39:10.160 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 10:39:10.315 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-04-27 10:39:10.408 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 243.1722ms
+2025-04-27 10:39:10.410 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:39:10.410 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7060/api/Compare/compare application/json 669 - 400 - application/problem+json;+charset=utf-8 387.2423ms
+2025-04-27 10:40:34.422 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495
+2025-04-27 10:40:34.423 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:40:34.424 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 10:40:34.670 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 10:40:42.148 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7469.3109ms.
+2025-04-27 10:40:42.149 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 10:40:42.153 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 7728.9958ms
+2025-04-27 10:40:42.153 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:40:42.153 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495 - 200 - application/json;+charset=utf-8 7730.8706ms
+2025-04-27 10:56:19.979 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 10:56:20.026 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 10:56:20.028 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 10:56:20.029 +03:30 [INF] Hosting environment: Development
+2025-04-27 10:56:20.029 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 10:56:28.165 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 10:56:28.889 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 727.7570ms
+2025-04-27 10:56:28.987 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - -
+2025-04-27 10:56:28.993 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - -
+2025-04-27 10:56:29.052 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 64.9159ms
+2025-04-27 10:56:29.142 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 148.4895ms
+2025-04-27 10:56:32.569 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495
+2025-04-27 10:56:32.579 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:56:32.618 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 10:56:33.362 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 10:56:38.442 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - -
+2025-04-27 10:56:47.837 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14429.6279ms.
+2025-04-27 10:56:47.852 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 10:56:47.906 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 15283.7798ms
+2025-04-27 10:56:47.906 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 10:56:47.907 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495 - 200 - application/json;+charset=utf-8 15337.3775ms
+2025-04-27 10:56:48.222 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 9780.0548ms
+2025-04-27 11:12:20.511 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 11:12:20.560 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 11:12:20.564 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 11:12:20.564 +03:30 [INF] Hosting environment: Development
+2025-04-27 11:12:20.564 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 11:12:23.458 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 11:12:24.100 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 644.0295ms
+2025-04-27 11:12:25.987 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495
+2025-04-27 11:12:25.995 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 11:12:26.071 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 11:12:26.543 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 11:27:45.984 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 919430.9232ms.
+2025-04-27 11:27:45.994 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 11:27:46.037 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 919954.7174ms
+2025-04-27 11:27:46.037 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 11:27:46.038 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495 - 200 - application/json;+charset=utf-8 920050.9165ms
+2025-04-27 11:37:51.251 +03:30 [INF] Now listening on: https://localhost:7060
+2025-04-27 11:37:51.285 +03:30 [INF] Now listening on: http://localhost:5047
+2025-04-27 11:37:51.288 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-27 11:37:51.289 +03:30 [INF] Hosting environment: Development
+2025-04-27 11:37:51.289 +03:30 [INF] Content root path: C:\Users\Alaqeband\Source\Repos\majidghafarian\Comparer\Compare.Api
+2025-04-27 11:37:53.054 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - -
+2025-04-27 11:37:53.509 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - - - 200 - text/html;charset=utf-8 457.8944ms
+2025-04-27 11:37:53.551 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - -
+2025-04-27 11:37:53.551 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - -
+2025-04-27 11:37:53.561 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 9.5410ms
+2025-04-27 11:37:53.608 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.4295ms
+2025-04-27 11:37:53.797 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - -
+2025-04-27 11:37:53.988 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 190.2610ms
+2025-04-27 11:38:04.330 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495
+2025-04-27 11:38:04.340 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 11:38:04.362 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 11:38:21.749 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-04-27 11:41:21.002 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 179245.9502ms.
+2025-04-27 11:41:21.009 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-27 11:41:21.049 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 196669.404ms
+2025-04-27 11:41:21.050 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 11:41:21.050 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495 - 200 - application/json;+charset=utf-8 196720.1598ms
+2025-04-27 11:41:28.150 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/Compare/compare application/json 495
+2025-04-27 11:41:28.151 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-04-27 11:41:28.151 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-04-27 11:41:37.595 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
