@@ -10,10 +10,11 @@ using System.Xml.Linq;
 
 namespace Domain
 {
+
     public class ProductDetail
     {
         public int Id { get; set; }
-        [Display(Name = "ویژگی")]
+    
         public string Feature { get; set; }
         [Display(Name = "مقدار")]
         public string Value { get; set; }
@@ -22,6 +23,7 @@ namespace Domain
         [ForeignKey("productid")]
         [JsonIgnore]
         public Product? product { get; set; }
+        [Display(Name = "جزئیات بیشتر")]
         public List<ProductSubDetail> SubDetails { get; set; } = new List<ProductSubDetail>();
 
     }

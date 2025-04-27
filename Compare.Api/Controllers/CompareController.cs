@@ -17,17 +17,7 @@ namespace Compare.Api.Controllers
             _comparerService = comparerService;
         }
 
-        //[HttpPost("compare")]
-        //public IActionResult CompareObjects([FromBody] CompareRequest<Employe> request)
-        //{
-        //    if (request.OldObject == null || request.NewObject == null)
-        //    {
-        //        return BadRequest("Both objects must be provided.");
-        //    }
-
-        //    string result = _comparerService.CompareAndLogChanges(request.OldObject, request.NewObject);
-        //    return Ok(new { پیام = result });
-        //}
+ 
         [HttpPost("compare")]
         public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
         {

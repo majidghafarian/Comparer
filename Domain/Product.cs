@@ -14,6 +14,7 @@ namespace Domain
 
         [Display(Name = "نام محصول")]
         public string Name { get; set; }
+        [Display(Name = "جزئیات محصول")]
         public List<ProductDetail> Details { get; set; } = new List<ProductDetail>();
     }
 

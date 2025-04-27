@@ -88,8 +88,11 @@ namespace Infrastructure.Service
         }
         private string GetDisplayName(PropertyInfo prop)
         {
+            // گرفتن DisplayAttribute از پراپرتی
             var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
-            return displayAttr?.Name ?? prop.Name;
+
+            // اگر DisplayAttribute وجود داشته باشد، Name رو برمی‌گرداند
+            return displayAttr?.Name;
         }
 
 
@@ -103,7 +106,7 @@ namespace Infrastructure.Service
                 return changes;
             }
 
-            var type = oldObj.GetType(); // 👈 اینجا باید نوع واقعی آبجکت رو بگیری
+            var type = oldObj.GetType(); // نوع واقعی آبجکت
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var prop in properties)
@@ -111,9 +114,17 @@ namespace Infrastructure.Service
                 var oldValue = prop.GetValue(oldObj);
                 var newValue = prop.GetValue(newObj);
 
+                // گرفتن DisplayName برای هر پراپرتی
+                var displayName = GetDisplayName(prop);
+
+                // اگر DisplayName وجود نداشته باشد، این پراپرتی را نادیده می‌گیریم (فقط از نمایش حذف می‌شود)
+                if (displayName == null)
+                    continue;
+
                 if (oldValue == null && newValue == null)
                     continue;
 
+                // مقایسه لیست‌ها
                 if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
                 {
                     var oldList = (oldValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
@@ -121,25 +132,24 @@ namespace Infrastructure.Service
 
                     if (oldList.Any() || newList.Any())
                     {
-                        changes.AddRange(CompareByKey(oldList, newList, keyName, $"{prefix}{prop.Name}->"));
+                        changes.AddRange(CompareByKey(oldList, newList, keyName, $"{prefix}{displayName}->"));
                     }
                     continue;
                 }
 
+                // اگر کلاس بود (نه لیست)، مقایسه آبجکتی انجام بده
                 if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string))
                 {
-                    changes.AddRange(CompareObjects(oldValue, newValue, $"{prefix}{prop.Name}->", keyName));
+                    changes.AddRange(CompareObjects(oldValue, newValue, $"{prefix}{displayName}->", keyName));
                     continue;
                 }
 
+                // مقایسه فیلدهای ساده
                 if ((oldValue == null && newValue != null) ||
                     (oldValue != null && newValue == null) ||
                     (oldValue != null && !oldValue.Equals(newValue)))
                 {
-                    var displayName = GetDisplayName(prop);
-
                     changes.Add($"{prefix}{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
-
                 }
             }
 
