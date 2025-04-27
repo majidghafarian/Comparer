@@ -3,6 +3,7 @@ using Domain.Attributes;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -85,60 +86,12 @@ namespace Infrastructure.Service
             // اگر پراپرتی نبود (مثلا keyName اشتباه فرستاده شده بود)
             return null;
         }
+        private string GetDisplayName(PropertyInfo prop)
+        {
+            var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
+            return displayAttr?.Name ?? prop.Name;
+        }
 
-        //public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "", string keyName = "Id")
-        //{
-        //    var changes = new List<string>();
-
-        //    if (oldObj == null || newObj == null)
-        //    {
-        //        changes.Add($"{prefix} یکی از آبجکت‌ها نال است.");
-        //        return changes;
-        //    }
-
-        //    var type = typeof(T);
-        //    var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-        //    foreach (var prop in properties)
-        //    {
-        //        var oldValue = prop.GetValue(oldObj);
-        //        var newValue = prop.GetValue(newObj);
-
-        //        if (oldValue == null && newValue == null)
-        //            continue;
-
-        //        if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
-        //        {
-        //            // مقایسه لیست ها
-        //            var oldList = (oldValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
-        //            var newList = (newValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
-
-        //            if (oldList.Any() || newList.Any())
-        //            {
-        //                // اگر داخل لیست چیزی بود، مقایسه کن
-        //                changes.AddRange(CompareByKey(oldList, newList, keyName, $"{prefix}{prop.Name}->"));
-        //            }
-        //            continue;
-        //        }
-
-        //        if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string))
-        //        {
-        //            // اگر کلاس بود (نه لیست)، مقایسه آبجکتی انجام بده
-        //            changes.AddRange(CompareObjects(oldValue, newValue, $"{prefix}{prop.Name}->", keyName));
-        //            continue;
-        //        }
-
-        //        // مقایسه فیلدهای ساده
-        //        if ((oldValue == null && newValue != null) ||
-        //            (oldValue != null && newValue == null) ||
-        //            (oldValue != null && !oldValue.Equals(newValue)))
-        //        {
-        //            changes.Add($"{prefix}{prop.Name} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
-        //        }
-        //    }
-
-        //    return changes;
-        //}
 
         public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "", string keyName = "Id")
         {
@@ -183,7 +136,10 @@ namespace Infrastructure.Service
                     (oldValue != null && newValue == null) ||
                     (oldValue != null && !oldValue.Equals(newValue)))
                 {
-                    changes.Add($"{prefix}{prop.Name} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                    var displayName = GetDisplayName(prop);
+
+                    changes.Add($"{prefix}{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+
                 }
             }
 
