@@ -11,9 +11,10 @@ namespace Domain
     {
         [Key]
         public int Id { get; set; }
-
         [Display(Name = "نام محصول")]
         public string Name { get; set; }
+        [Display(Name = "وضعیت کاربر")]
+        public bool IsActive { get; set; }
         [Display(Name = "جزئیات محصول")]
         public List<ProductDetail> Details { get; set; } = new List<ProductDetail>();
     }

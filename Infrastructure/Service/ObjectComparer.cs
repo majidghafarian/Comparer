@@ -117,12 +117,30 @@ namespace Infrastructure.Service
                 // گرفتن DisplayName برای هر پراپرتی
                 var displayName = GetDisplayName(prop);
 
-                // اگر DisplayName وجود نداشته باشد، این پراپرتی را نادیده می‌گیریم (فقط از نمایش حذف می‌شود)
+                // اگر DisplayName وجود نداشته باشد، این پراپرتی را نادیده می‌گیریم
                 if (displayName == null)
                     continue;
 
+                // اگر مقدار old و new برابر باشد، ادامه ندهیم
                 if (oldValue == null && newValue == null)
                     continue;
+
+                // بررسی مقدار نوع bool
+                if (prop.PropertyType == typeof(bool))
+                {
+                    var oldBool = (bool?)oldValue;
+                    var newBool = (bool?)newValue;
+
+                    // نمایش پیغام برای فیلدهایی که از نوع bool هستند
+                    if (oldBool != newBool)
+                    {
+                        string oldStatus = oldBool.HasValue && oldBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
+                        string newStatus = newBool.HasValue && newBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
+                        changes.Add($"{prefix}{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+                    }
+
+                    continue;
+                }
 
                 // مقایسه لیست‌ها
                 if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
@@ -155,6 +173,7 @@ namespace Infrastructure.Service
 
             return changes;
         }
+
 
 
     }
