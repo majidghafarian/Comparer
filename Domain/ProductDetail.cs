@@ -22,6 +22,7 @@ namespace Domain
         [ForeignKey("productid")]
         [JsonIgnore]
         public Product? product { get; set; }
+        public List<ProductSubDetail> SubDetails { get; set; } = new List<ProductSubDetail>();
 
     }
 }
