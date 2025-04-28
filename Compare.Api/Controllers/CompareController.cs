@@ -18,8 +18,20 @@ namespace Compare.Api.Controllers
         }
 
  
+        //[HttpPost("compare")]
+        //public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
+        //{
+        //    if (request == null || string.IsNullOrEmpty(request.KeyName))
+        //    {
+        //        return BadRequest("درخواست نامعتبر است یا کلید مشخص نشده.");
+        //    }
+
+        //    var changes = _comparerService.CompareByKey(request.OldList, request.NewList, request.KeyName);
+
+        //    return Ok(changes);
+        //}
         [HttpPost("compare")]
-        public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
+        public IActionResult CompareProducts([FromBody] CompareRequest<TestModel> request)
         {
             if (request == null || string.IsNullOrEmpty(request.KeyName))
             {
@@ -30,6 +42,7 @@ namespace Compare.Api.Controllers
 
             return Ok(changes);
         }
+
 
     }
 

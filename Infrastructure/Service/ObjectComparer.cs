@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using System.Security.AccessControl;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Service
@@ -22,6 +24,17 @@ namespace Infrastructure.Service
             _logger = logger;
         }
 
+        // گرفتن پراپرتی‌های کش شده برای سرعت بهتر
+        private Dictionary<string, PropertyInfo> GetProperties(Type type)
+        {
+            if (!_propertyCache.TryGetValue(type, out var props))
+            {
+                props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                            .ToDictionary(p => p.Name, p => p, StringComparer.OrdinalIgnoreCase);
+                _propertyCache[type] = props;
+            }
+            return props;
+        }
 
 
         public List<string> CompareByKey(IEnumerable<object> oldList, IEnumerable<object> newList, string keyName, string prefix = "")
@@ -59,33 +72,15 @@ namespace Infrastructure.Service
             return changes;
         }
 
-      
+
+        // گرفتن مقدار کلید
         private object GetKeyValue(object obj, string keyName)
         {
-            if (obj == null || string.IsNullOrEmpty(keyName))
-                return null;
-
-            var type = obj.GetType();
-
-            // چک کردن کش: آیا قبلاً پراپرتی های این تایپ ذخیره شده؟
-            if (!_propertyCache.TryGetValue(type, out var properties))
-            {
-                // اگر نبوده، پراپرتی ها را بخوان و بریز داخل کش
-                properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                                 .ToDictionary(p => p.Name, p => p, StringComparer.OrdinalIgnoreCase);
-
-                _propertyCache[type] = properties;
-            }
-
-            // حالا سعی کن پراپرتی مورد نظر رو از کش پیدا کنی
-            if (properties.TryGetValue(keyName, out var propertyInfo))
-            {
-                return propertyInfo.GetValue(obj);
-            }
-
-            // اگر پراپرتی نبود (مثلا keyName اشتباه فرستاده شده بود)
-            return null;
+            if (obj == null || string.IsNullOrEmpty(keyName)) return null;
+            var props = GetProperties(obj.GetType());
+            return props.TryGetValue(keyName, out var prop) ? prop.GetValue(obj) : null;
         }
+
         private string GetDisplayName(PropertyInfo prop)
         {
             // گرفتن DisplayAttribute از پراپرتی
@@ -118,12 +113,30 @@ namespace Infrastructure.Service
                 var displayName = GetDisplayName(prop);
 
                 // اگر DisplayName وجود نداشته باشد، این پراپرتی را نادیده می‌گیریم
-                if (displayName == null)
-                    continue;
+                //if (displayName == null)
+                //    continue;
 
                 // اگر مقدار old و new برابر باشد، ادامه ندهیم
                 if (oldValue == null && newValue == null)
                     continue;
+                ///بررسی  enum 
+                // بررسی Enum
+                if (prop.PropertyType.IsEnum)
+                {
+                    if (prop.PropertyType.GetCustomAttribute<FlagsAttribute>() != null)
+                    {
+                        changes.AddRange(CompareFlagsManually((Enum)oldValue, (Enum)newValue, $"{prefix}{prop.Name}->"));
+                    }
+                    else
+                    {
+                        if (!Equals(oldValue, newValue))
+                        {
+                            changes.Add($"{prefix}{prop.Name} تغییر کرده: از '{oldValue}' به '{newValue}'");
+                        }
+                    }
+                    continue;
+                }
+
 
                 // بررسی مقدار نوع bool
                 if (prop.PropertyType == typeof(bool))
@@ -174,6 +187,76 @@ namespace Infrastructure.Service
             return changes;
         }
 
+        private List<string> CompareFlagsManually(Enum oldValue, Enum newValue, string prefix)
+        {
+            var changes = new List<string>();
+
+            var oldVal = Convert.ToInt32(oldValue);
+            var newVal = Convert.ToInt32(newValue);
+
+            var oldFlags = Enum.GetValues(oldValue.GetType()).Cast<Enum>()
+                .Where(f => (Convert.ToInt32(f) & oldVal) == Convert.ToInt32(f) && Convert.ToInt32(f) != 0);
+
+            var newFlags = Enum.GetValues(newValue.GetType()).Cast<Enum>()
+                .Where(f => (Convert.ToInt32(f) & newVal) == Convert.ToInt32(f) && Convert.ToInt32(f) != 0);
+
+            var removed = oldFlags.Except(newFlags).ToList();
+            var added = newFlags.Except(oldFlags).ToList();
+
+            if (removed.Count == 1 && added.Count == 1)
+            {
+                changes.Add($"{prefix}{removed[0]} به {added[0]} تغییر کرده.");
+            }
+            else
+            {
+                foreach (var r in removed)
+                {
+                    changes.Add($"{prefix}{r} حذف شده.");
+                }
+                foreach (var a in added)
+                {
+                    changes.Add($"{prefix}{a} اضافه شده.");
+                }
+            }
+
+            return changes;
+        }
+
+        private List<string> CompareEnumDefinitions(Type oldEnumType, Type newEnumType, string prefix)
+        {
+            var changes = new List<string>();
+
+            var oldValues = Enum.GetValues(oldEnumType).Cast<Enum>()
+                .ToDictionary(e => Convert.ToInt32(e), e => e.ToString());
+
+            var newValues = Enum.GetValues(newEnumType).Cast<Enum>()
+                .ToDictionary(e => Convert.ToInt32(e), e => e.ToString());
+
+            foreach (var oldItem in oldValues)
+            {
+                if (newValues.TryGetValue(oldItem.Key, out var newName))
+                {
+                    if (!string.Equals(oldItem.Value, newName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        changes.Add($"{prefix}مقدار {oldItem.Key} تغییر کرده: از '{oldItem.Value}' به '{newName}'");
+                    }
+                }
+                else
+                {
+                    changes.Add($"{prefix}مقدار {oldItem.Key} با نام '{oldItem.Value}' در Enum جدید وجود ندارد.");
+                }
+            }
+
+            foreach (var newItem in newValues)
+            {
+                if (!oldValues.ContainsKey(newItem.Key))
+                {
+                    changes.Add($"{prefix}مقدار {newItem.Key} با نام '{newItem.Value}' جدید اضافه شده.");
+                }
+            }
+
+            return changes;
+        }
 
 
     }
