@@ -21,12 +21,12 @@ namespace Compare.Api.Controllers
         [HttpPost("compare")]
         public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
         {
-            if (request == null || string.IsNullOrEmpty(request.KeyName))
+            if (request == null )
             {
                 return BadRequest("درخواست نامعتبر است یا کلید مشخص نشده.");
             }
 
-            var changes = _comparerService.CompareByKey(request.OldList, request.NewList, request.KeyName);
+            var changes = _comparerService.CompareObjects(request.OldList, request.NewList );
 
             return Ok(changes);
         }

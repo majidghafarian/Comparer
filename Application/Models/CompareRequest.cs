@@ -10,6 +10,6 @@ namespace Application.Models
     {
         public List<T> OldList { get; set; }
         public List<T> NewList { get; set; }
-        public string KeyName { get; set; }
+    
     }
 }

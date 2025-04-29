@@ -9,7 +9,7 @@ namespace Application.IService
     public interface IObjectComparer
     {
         //string CompareAndLogChanges<T>(T oldObject, T newObject);
-        public List<string> CompareByKey(IEnumerable<object> oldList, IEnumerable<object> newList, string keyName, string prefix = "");
-        public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "", string keyName = "Id");
+        //public List<string> CompareByKey(IEnumerable<object> oldList, IEnumerable<object> newList, string keyName, string prefix = "");
+        public List<string> CompareObjects<T>(T oldObj, T newObj );
     }
 }
