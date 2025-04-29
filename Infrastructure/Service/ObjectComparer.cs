@@ -83,12 +83,24 @@ namespace Infrastructure.Service
 
         private string GetDisplayName(PropertyInfo prop)
         {
-            // گرفتن DisplayAttribute از پراپرتی
+            // گرفتن DisplayAttribute
             var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
 
-            // اگر DisplayAttribute وجود داشته باشد، Name رو برمی‌گرداند
-            return displayAttr?.Name;
+            if (displayAttr != null)
+                return displayAttr.Name;
+
+            // اگر Display نداشت و Enum بود
+            if (prop.PropertyType.IsEnum)
+            {
+                // مقدار پیش‌فرض Enum رو بده (مثلا اولین مقدار که None یا New هست)
+                var enumNames = Enum.GetNames(prop.PropertyType);
+                return enumNames.FirstOrDefault() ?? prop.Name;
+            }
+
+            // در غیر این صورت، اسم خود پراپرتی
+            return prop.Name;
         }
+
 
 
         public List<string> CompareObjects<T>(T oldObj, T newObj, string prefix = "", string keyName = "Id")
@@ -113,8 +125,9 @@ namespace Infrastructure.Service
                 var displayName = GetDisplayName(prop);
 
                 // اگر DisplayName وجود نداشته باشد، این پراپرتی را نادیده می‌گیریم
-                //if (displayName == null)
-                //    continue;
+
+                if (displayName == null)
+                    continue;
 
                 // اگر مقدار old و new برابر باشد، ادامه ندهیم
                 if (oldValue == null && newValue == null)
@@ -222,41 +235,41 @@ namespace Infrastructure.Service
             return changes;
         }
 
-        private List<string> CompareEnumDefinitions(Type oldEnumType, Type newEnumType, string prefix)
-        {
-            var changes = new List<string>();
+        //private List<string> CompareEnumDefinitions(Type oldEnumType, Type newEnumType, string prefix)
+        //{
+        //    var changes = new List<string>();
 
-            var oldValues = Enum.GetValues(oldEnumType).Cast<Enum>()
-                .ToDictionary(e => Convert.ToInt32(e), e => e.ToString());
+        //    var oldValues = Enum.GetValues(oldEnumType).Cast<Enum>()
+        //        .ToDictionary(e => Convert.ToInt32(e), e => e.ToString());
 
-            var newValues = Enum.GetValues(newEnumType).Cast<Enum>()
-                .ToDictionary(e => Convert.ToInt32(e), e => e.ToString());
+        //    var newValues = Enum.GetValues(newEnumType).Cast<Enum>()
+        //        .ToDictionary(e => Convert.ToInt32(e), e => e.ToString());
 
-            foreach (var oldItem in oldValues)
-            {
-                if (newValues.TryGetValue(oldItem.Key, out var newName))
-                {
-                    if (!string.Equals(oldItem.Value, newName, StringComparison.OrdinalIgnoreCase))
-                    {
-                        changes.Add($"{prefix}مقدار {oldItem.Key} تغییر کرده: از '{oldItem.Value}' به '{newName}'");
-                    }
-                }
-                else
-                {
-                    changes.Add($"{prefix}مقدار {oldItem.Key} با نام '{oldItem.Value}' در Enum جدید وجود ندارد.");
-                }
-            }
+        //    foreach (var oldItem in oldValues)
+        //    {
+        //        if (newValues.TryGetValue(oldItem.Key, out var newName))
+        //        {
+        //            if (!string.Equals(oldItem.Value, newName, StringComparison.OrdinalIgnoreCase))
+        //            {
+        //                changes.Add($"{prefix}مقدار {oldItem.Key} تغییر کرده: از '{oldItem.Value}' به '{newName}'");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            changes.Add($"{prefix}مقدار {oldItem.Key} با نام '{oldItem.Value}' در Enum جدید وجود ندارد.");
+        //        }
+        //    }
 
-            foreach (var newItem in newValues)
-            {
-                if (!oldValues.ContainsKey(newItem.Key))
-                {
-                    changes.Add($"{prefix}مقدار {newItem.Key} با نام '{newItem.Value}' جدید اضافه شده.");
-                }
-            }
+        //    foreach (var newItem in newValues)
+        //    {
+        //        if (!oldValues.ContainsKey(newItem.Key))
+        //        {
+        //            changes.Add($"{prefix}مقدار {newItem.Key} با نام '{newItem.Value}' جدید اضافه شده.");
+        //        }
+        //    }
 
-            return changes;
-        }
+        //    return changes;
+        //}
 
 
     }
