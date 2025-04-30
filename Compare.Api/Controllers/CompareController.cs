@@ -1,6 +1,7 @@
 ﻿using Application.IService;
 using Application.Models;
 using Domain;
+using Infrastructure.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,24 +11,25 @@ namespace Compare.Api.Controllers
     [Route("api/[controller]")]
     public class CompareController : ControllerBase
     {
-        private readonly IObjectComparer _comparerService;
-
-        public CompareController(IObjectComparer comparerService)
-        {
-            _comparerService = comparerService;
-        }
-
+       
+ 
  
         [HttpPost("compare")]
         public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
         {
-            if (request == null )
+            var compare = new ObjectComparer();
+            var changes = new List<string>();
+
+            for (int i = 0; i < request.OldList.Count; i++)
             {
-                return BadRequest("درخواست نامعتبر است یا کلید مشخص نشده.");
+                var oldProduct = request.OldList[i];
+                var newProduct = request.NewList.FirstOrDefault(p => p.Id == oldProduct.Id);
+                if (newProduct != null)
+                {
+                    changes.AddRange(compare.CompareObjects(oldProduct, newProduct));
+                }
             }
-
-            var changes = _comparerService.CompareObjects(request.OldList, request.NewList );
-
+             
             return Ok(changes);
         }
 

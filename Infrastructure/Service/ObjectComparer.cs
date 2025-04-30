@@ -1,6 +1,7 @@
 ﻿using Application.IService;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,90 +11,29 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Service
 {
-    public class ObjectComparer : IObjectComparer
+    public class ObjectComparer
     {
 
-        private readonly ILogger<ObjectComparer> _logger;
-        private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> _propertyCache = new();
-
-        public ObjectComparer(ILogger<ObjectComparer> logger)
-        {
-            _logger = logger;
-        }
 
 
-
-        //public List<string> CompareByKey(IEnumerable<object> oldList, IEnumerable<object> newList, string keyName, string prefix = "")
-        //{
-        //    var changes = new List<string>();
-
-        //    var oldDict = oldList
-        //        .Where(x => GetKeyValue(x, keyName) != null)
-        //        .ToDictionary(x => GetKeyValue(x, keyName)!.ToString()!, x => x);
-
-        //    var newDict = newList
-        //        .Where(x => GetKeyValue(x, keyName) != null)
-        //        .ToDictionary(x => GetKeyValue(x, keyName)!.ToString()!, x => x);
-
-        //    foreach (var oldItem in oldDict)
-        //    {
-        //        if (!newDict.ContainsKey(oldItem.Key))
-        //        {
-        //            changes.Add($"{prefix} آیتم با کلید {oldItem.Key} حذف شده.");
-        //        }
-        //        else
-        //        {
-        //            changes.AddRange(CompareObjects(oldItem.Value, newDict[oldItem.Key], $"{prefix}({keyName}={oldItem.Key}) ", keyName));
-        //        }
-        //    }
-
-        //    foreach (var newItem in newDict)
-        //    {
-        //        if (!oldDict.ContainsKey(newItem.Key))
-        //        {
-        //            changes.Add($"{prefix} آیتم جدید با کلید {newItem.Key} اضافه شده.");
-        //        }
-        //    }
-
-        //    return changes;
-        //}
-
-
-        //private object GetKeyValue(object obj, string keyName)
-        //{
-        //    if (obj == null || string.IsNullOrEmpty(keyName))
-        //        return null;
-
-        //    var type = obj.GetType();
-
-        //    // چک کردن کش: آیا قبلاً پراپرتی های این تایپ ذخیره شده؟
-        //    if (!_propertyCache.TryGetValue(type, out var properties))
-        //    {
-        //        // اگر نبوده، پراپرتی ها را بخوان و بریز داخل کش
-        //        properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-        //                         .ToDictionary(p => p.Name, p => p, StringComparer.OrdinalIgnoreCase);
-
-        //        _propertyCache[type] = properties;
-        //    }
-
-        //    // حالا سعی کن پراپرتی مورد نظر رو از کش پیدا کنی
-        //    if (properties.TryGetValue(keyName, out var propertyInfo))
-        //    {
-        //        return propertyInfo.GetValue(obj);
-        //    }
-
-        //    // اگر پراپرتی نبود (مثلا keyName اشتباه فرستاده شده بود)
-        //    return null;
-        //}
         private string GetDisplayName(PropertyInfo prop)
         {
-            // گرفتن DisplayAttribute از پراپرتی
             var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
-
-            // اگر DisplayAttribute وجود داشته باشد، Name رو برمی‌گرداند
-            return displayAttr?.Name;
+            return displayAttr?.Name ?? prop.Name;
         }
 
+        private string GetEnumDisplayName(Enum value)
+        {
+            var member = value.GetType().GetMember(value.ToString()).FirstOrDefault();
+            var displayAttr = member?.GetCustomAttribute<DisplayAttribute>();
+            return displayAttr?.Name ?? value.ToString();
+        }
+
+        private PropertyInfo GetKeyProperty(Type type)
+        {
+            return type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                       .FirstOrDefault(p => p.GetCustomAttribute<KeyAttribute>() != null);
+        }
 
         public List<string> CompareObjects<T>(T oldObj, T newObj)
         {
@@ -101,76 +41,37 @@ namespace Infrastructure.Service
 
             if (oldObj == null || newObj == null)
             {
-                changes.Add(" یکی از آبجکت‌ها نال است.");
+                changes.Add("یکی از آبجکت‌ها نال است.");
                 return changes;
             }
 
-            var type = oldObj.GetType(); // نوع واقعی آبجکت
-            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var type = typeof(T);
+            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
-            var KeyProperties = properties.FirstOrDefault(x => x.GetCustomAttribute<KeyAttribute>()!=null);
-            if (KeyProperties != null)
+            foreach (var prop in props)
             {
-                var oldkey = KeyProperties.GetValue(oldObj);
-                var newvalue = KeyProperties.GetValue(newObj);
-                if (!Equals(oldkey, newvalue))
-                {
-                    changes.Add("مقادیر کلید ها با هم متفاوت است ،مقایسه ممکن نیست.");
-                    return changes;
-                }
+                if (prop.GetIndexParameters().Length > 0)
+                    continue;
 
-            }
-            foreach (var prop in properties)
-            {
+                var displayName = GetDisplayName(prop);
                 var oldValue = prop.GetValue(oldObj);
                 var newValue = prop.GetValue(newObj);
 
-                // گرفتن DisplayName برای هر پراپرتی
-                var displayName = GetDisplayName(prop);
-
-                // اگر DisplayName وجود نداشته باشد، این پراپرتی را نادیده می‌گیریم
-                if (displayName == null)
-                    continue;
-
-
-
-                // اگر مقدار old و new برابر باشد، ادامه ندهیم
                 if (oldValue == null && newValue == null)
                     continue;
 
-                ///بررسی  enum 
-                // بررسی Enum
                 if (prop.PropertyType.IsEnum)
                 {
                     if (prop.PropertyType.GetCustomAttribute<FlagsAttribute>() != null)
                     {
                         changes.AddRange(CompareFlagsManually((Enum)oldValue, (Enum)newValue));
                     }
-                    else
+                    else if (!Equals(oldValue, newValue))
                     {
-                        if (!Equals(oldValue, newValue))
-                        {
-                            changes.Add($" {prop.Name} تغییر کرده: از '{oldValue}' به '{newValue}'");
-                        }
+                        string oldText = GetEnumDisplayName((Enum)oldValue);
+                        string newText = GetEnumDisplayName((Enum)newValue);
+                        changes.Add($"{displayName} تغییر کرده: از '{oldText}' به '{newText}'");
                     }
-                    continue;
-                }
-
-
-                // بررسی مقدار نوع bool
-                if (prop.PropertyType == typeof(bool))
-                {
-                    var oldBool = (bool?)oldValue;
-                    var newBool = (bool?)newValue;
-
-                    // نمایش پیغام برای فیلدهایی که از نوع bool هستند
-                    if (oldBool != newBool)
-                    {
-                        string oldStatus = oldBool.HasValue && oldBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
-                        string newStatus = newBool.HasValue && newBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
-                        changes.Add($" {displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
-                    }
-
                     continue;
                 }
 
@@ -179,44 +80,60 @@ namespace Infrastructure.Service
                     var oldBool = (bool?)oldValue;
                     var newBool = (bool?)newValue;
 
-                    // نمایش پیغام برای فیلدهایی که از نوع bool هستند
                     if (oldBool != newBool)
                     {
                         string oldStatus = oldBool.HasValue && oldBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
                         string newStatus = newBool.HasValue && newBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
                         changes.Add($"{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
                     }
-
                     continue;
                 }
 
-                // مقایسه لیست‌ها
-                if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
+                if (typeof(IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
                 {
-                    var oldList = (oldValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
-                    var newList = (newValue as System.Collections.IEnumerable)?.Cast<object>().ToList() ?? new List<object>();
-                    var combind = new List<string>();
-                    combind.AddRange(oldList.Cast<string>());
-                    combind.AddRange(newList.Cast<string>());
-                    combind.Add(displayName);
-                    if (oldList.Any() || newList.Any())
+                    var oldList = (oldValue as IEnumerable)?.Cast<object>().ToList() ?? new();
+                    var newList = (newValue as IEnumerable)?.Cast<object>().ToList() ?? new();
+
+                    var itemType = prop.PropertyType.IsGenericType ? prop.PropertyType.GetGenericArguments().FirstOrDefault() : null;
+                    var keyProp = itemType != null ? GetKeyProperty(itemType) : null;
+
+                    if (keyProp == null)
                     {
-                        changes.AddRange(combind );
+                        changes.Add($"🔴 کلید برای {displayName} یافت نشد (نوع: {itemType?.Name})");
+                        continue;
+                    }
+
+                    var oldDict = oldList.ToDictionary(x => keyProp.GetValue(x)?.ToString());
+                    var newDict = newList.ToDictionary(x => keyProp.GetValue(x)?.ToString());
+
+                    foreach (var key in oldDict.Keys)
+                    {
+                        if (newDict.TryGetValue(key, out var newItem))
+                        {
+                            var nestedChanges = CompareObjects(oldDict[key], newItem);
+                            changes.AddRange(nestedChanges);
+                        }
+                        else
+                        {
+                            changes.Add($"{displayName} آیتمی با کلید '{key}' در لیست جدید وجود ندارد.");
+                        }
+                    }
+
+                    foreach (var key in newDict.Keys.Except(oldDict.Keys))
+                    {
+                        changes.Add($"{displayName} آیتم جدیدی با کلید '{key}' اضافه شده.");
                     }
                     continue;
                 }
 
-                // اگر کلاس بود (نه لیست)، مقایسه آبجکتی انجام بده
                 if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string))
                 {
-                    changes.AddRange(CompareObjects(oldValue, newValue));
+                    var nestedChanges = CompareObjects(oldValue, newValue);
+                    changes.AddRange(nestedChanges);
                     continue;
                 }
 
-                // مقایسه فیلدهای ساده
-                if ((oldValue == null && newValue != null) ||
-                    (oldValue != null && newValue == null) ||
-                    (oldValue != null && !oldValue.Equals(newValue)))
+                if ((oldValue == null && newValue != null) || (oldValue != null && !oldValue.Equals(newValue)))
                 {
                     changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
                 }
@@ -243,24 +160,22 @@ namespace Infrastructure.Service
 
             if (removed.Count == 1 && added.Count == 1)
             {
-                changes.Add($" {removed[0]} به {added[0]} تغییر کرده.");
+                changes.Add($"{removed[0]} به {added[0]} تغییر کرده.");
             }
             else
             {
                 foreach (var r in removed)
                 {
-                    changes.Add($" {r} حذف شده.");
+                    changes.Add($"{r} حذف شده.");
                 }
                 foreach (var a in added)
                 {
-                    changes.Add($" {a} اضافه شده.");
+                    changes.Add($"{a} اضافه شده.");
                 }
             }
 
             return changes;
         }
-
-
-
     }
 }
+

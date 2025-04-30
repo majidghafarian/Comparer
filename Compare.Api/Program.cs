@@ -19,7 +19,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddLogging();
-builder.Services.AddScoped<IObjectComparer, ObjectComparer>();
+//builder.Services.AddScoped<IObjectComparer, ObjectComparer>();
 
 
 builder.Services.AddCors(options =>

@@ -13,8 +13,9 @@ namespace Domain
 
     public class ProductDetail
     {
+        [Key]
         public int Id { get; set; }
-    
+        [Display(Name = "2مقدار")]
         public string Feature { get; set; }
         [Display(Name = "مقدار")]
         public string Value { get; set; }

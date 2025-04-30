@@ -9,6 +9,7 @@ namespace Domain
 {
     public class ProductSubDetail
     {
+        [Key]
         public int Id { get; set; }
         [Display(Name = "زیر ویژگی")]
         public string SubFeature { get; set; }
