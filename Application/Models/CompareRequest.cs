@@ -8,8 +8,8 @@ namespace Application.Models
 {
     public class CompareRequest<T>
     {
-        public List<T> OldList { get; set; }
-        public List<T> NewList { get; set; }
+        public T oldObject { get; set; }
+        public T newObject { get; set; }
     
     }
 }

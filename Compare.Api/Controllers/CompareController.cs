@@ -1,5 +1,4 @@
-﻿using Application.IService;
-using Application.Models;
+﻿using Application.Models;
 using Domain;
 using Infrastructure.Service;
 using Microsoft.AspNetCore.Http;
@@ -17,19 +16,10 @@ namespace Compare.Api.Controllers
         [HttpPost("compare")]
         public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
         {
-            var compare = new ObjectComparer();
-            var changes = new List<string>();
+            
+             var changes = ObjectComparer.CompareByKey(request.oldObject, request.newObject);
+            //var changes = compare.CompareObjects(request.OldValue, request.NewValue);
 
-            for (int i = 0; i < request.OldList.Count; i++)
-            {
-                var oldProduct = request.OldList[i];
-                var newProduct = request.NewList.FirstOrDefault(p => p.Id == oldProduct.Id);
-                if (newProduct != null)
-                {
-                    changes.AddRange(compare.CompareObjects(oldProduct, newProduct));
-                }
-            }
-             
             return Ok(changes);
         }
 

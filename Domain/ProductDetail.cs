@@ -17,7 +17,7 @@ namespace Domain
         public int Id { get; set; }
         [Display(Name = "2مقدار")]
         public string Feature { get; set; }
-        [Display(Name = "مقدار")]
+        [Display(Name = "کش")]
         public string Value { get; set; }
         [JsonIgnore]
         public int? productid { get; set; }
