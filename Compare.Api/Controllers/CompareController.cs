@@ -26,7 +26,7 @@ namespace Compare.Api.Controllers
         //    return Ok(changes);
         //}
         [HttpPost("compare")]
-        public IActionResult CompareProducts([FromBody] CompareRequest<TestModel> request)
+        public IActionResult CompareProducts([FromBody] CompareRequest<Product> request)
         {
             
              var changes = ObjectComparer.CompareByKey(request.oldObject, request.newObject);

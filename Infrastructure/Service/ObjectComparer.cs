@@ -24,17 +24,7 @@ namespace Infrastructure.Service
             return displayAttr?.Name;
         }
 
-        // گرفتن پراپرتی‌های کش شده برای سرعت بهتر
-        private Dictionary<string, PropertyInfo> GetProperties(Type type)
-        {
-            if (!_propertyCache.TryGetValue(type, out var props))
-            {
-                props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                            .ToDictionary(p => p.Name, p => p, StringComparer.OrdinalIgnoreCase);
-                _propertyCache[type] = props;
-            }
-            return props;
-        }
+ 
 
         private static string GetEnumDisplayName(Enum value)
         {
