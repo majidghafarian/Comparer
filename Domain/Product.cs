@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
+    public enum Status
+    {
+        active = 0,
+        diactive = 1
+    }
+    [Display(Name ="جدول محصول")]
     public class Product
     {
         [Key]
@@ -17,6 +23,9 @@ namespace Domain
         public bool IsActive { get; set; }
         [Display(Name = "جزئیات محصول")]
         public List<ProductDetail> Details { get; set; } = new List<ProductDetail>();
+
+        public Status status { get; set; }
+
     }
 
 }

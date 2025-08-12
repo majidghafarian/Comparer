@@ -10,15 +10,15 @@ using System.Xml.Linq;
 
 namespace Domain
 {
-
+    [Display(Name = "جزئیات محصول")]
     public class ProductDetail
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Display(Name = "2مقدار")]
-        public string Feature { get; set; }
+        public string? Feature { get; set; }
         [Display(Name = "کش")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
         [JsonIgnore]
         public int? productid { get; set; }
         [ForeignKey("productid")]

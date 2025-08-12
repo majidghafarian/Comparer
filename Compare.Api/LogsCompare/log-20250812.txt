@@ -1,0 +1,529 @@
+2025-08-12 09:57:34.783 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 09:57:34.819 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 09:57:34.961 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 09:57:34.961 +03:30 [INF] Hosting environment: Development
+2025-08-12 09:57:34.961 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 09:57:35.658 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger - null null
+2025-08-12 09:57:36.229 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger - 301 0 null 575.5919ms
+2025-08-12 09:57:36.235 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 09:57:36.351 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/swagger-ui.css - null null
+2025-08-12 09:57:36.353 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 118.8962ms
+2025-08-12 09:57:36.354 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/swagger-ui-bundle.js - null null
+2025-08-12 09:57:36.354 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/swagger-ui-standalone-preset.js - null null
+2025-08-12 09:57:36.356 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 09:57:36.373 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 09:57:36.400 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 26.9427ms
+2025-08-12 09:57:36.439 +03:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-08-12 09:57:36.439 +03:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-08-12 09:57:36.439 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/swagger-ui.css - 200 152034 text/css 87.5337ms
+2025-08-12 09:57:36.439 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 84.6347ms
+2025-08-12 09:57:36.603 +03:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-08-12 09:57:36.604 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 249.7929ms
+2025-08-12 09:57:36.719 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 363.7733ms
+2025-08-12 09:57:36.853 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 09:57:36.859 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.4128ms
+2025-08-12 09:57:36.859 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/favicon-32x32.png - null null
+2025-08-12 09:57:36.859 +03:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-08-12 09:57:36.860 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/favicon-32x32.png - 200 628 image/png 0.4779ms
+2025-08-12 09:57:55.874 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 41
+2025-08-12 09:57:55.879 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 09:57:55.896 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 09:57:56.007 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 09:58:01.656 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5646.1437ms.
+2025-08-12 09:58:01.660 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 09:58:01.665 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 5766.8437ms
+2025-08-12 09:58:01.666 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 09:58:01.666 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 5791.9754ms
+2025-08-12 09:58:35.271 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 40
+2025-08-12 09:58:35.272 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 09:58:35.272 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 09:58:35.300 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 09:58:36.891 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1590.7755ms.
+2025-08-12 09:58:36.891 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 09:58:36.891 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 1619.1533ms
+2025-08-12 09:58:36.891 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 09:58:36.892 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 1620.3825ms
+2025-08-12 10:02:15.736 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 94
+2025-08-12 10:02:15.736 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:02:15.736 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:02:15.760 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:02:27.158 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 11398.0838ms.
+2025-08-12 10:02:27.159 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 10:02:27.159 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 11422.7802ms
+2025-08-12 10:02:27.159 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:02:27.159 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 11423.4358ms
+2025-08-12 10:02:39.091 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 94
+2025-08-12 10:02:39.091 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:02:39.091 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:02:39.110 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:05:19.635 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:05:19.665 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:05:19.706 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:05:19.706 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:05:19.707 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:05:20.476 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:05:20.826 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 354.3776ms
+2025-08-12 10:05:20.859 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:05:20.893 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:05:20.918 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 59.0955ms
+2025-08-12 10:05:21.047 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 154.2651ms
+2025-08-12 10:05:21.129 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:05:21.142 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.7637ms
+2025-08-12 10:05:24.273 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 94
+2025-08-12 10:05:24.279 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:05:24.300 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:05:24.419 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:13:23.961 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:13:23.990 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:13:24.046 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:13:24.047 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:13:24.047 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:13:24.583 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:13:24.811 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 231.6988ms
+2025-08-12 10:13:24.824 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:13:24.827 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:13:24.832 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 8.3419ms
+2025-08-12 10:13:24.871 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.8026ms
+2025-08-12 10:13:24.904 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:13:24.911 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.0624ms
+2025-08-12 10:13:28.515 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 120
+2025-08-12 10:13:28.521 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:13:28.540 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:13:28.665 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:20:56.575 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 447906.5183ms.
+2025-08-12 10:20:56.580 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 10:20:56.586 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 448043.1863ms
+2025-08-12 10:20:56.586 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:20:56.587 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 448071.9692ms
+2025-08-12 10:21:20.951 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 120
+2025-08-12 10:21:20.951 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:21:20.953 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:21:20.986 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:37:33.974 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:37:34.007 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:37:34.056 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:37:34.056 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:37:34.056 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:37:34.717 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:37:34.948 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 237.1231ms
+2025-08-12 10:37:34.958 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:37:34.959 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:37:34.962 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.755ms
+2025-08-12 10:37:34.994 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.7233ms
+2025-08-12 10:37:35.029 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:37:35.039 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.8037ms
+2025-08-12 10:39:31.452 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:39:31.483 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:39:31.526 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:39:31.527 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:39:31.527 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:39:32.204 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:39:32.464 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 265.3107ms
+2025-08-12 10:39:32.470 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:39:32.476 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:39:32.476 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.932ms
+2025-08-12 10:39:32.515 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.6981ms
+2025-08-12 10:39:32.548 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:39:32.557 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.2383ms
+2025-08-12 10:39:34.832 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 193
+2025-08-12 10:39:34.839 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:39:34.856 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:39:34.900 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-08-12 10:39:34.920 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 60.035ms
+2025-08-12 10:39:34.920 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:39:34.921 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 400 null application/problem+json; charset=utf-8 88.4716ms
+2025-08-12 10:42:43.121 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 205
+2025-08-12 10:42:43.122 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:42:43.122 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:42:43.144 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-08-12 10:42:43.144 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 22.3554ms
+2025-08-12 10:42:43.144 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:42:43.144 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 400 null application/problem+json; charset=utf-8 23.6769ms
+2025-08-12 10:43:28.642 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 211
+2025-08-12 10:43:28.647 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:43:28.651 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:43:28.653 +03:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-08-12 10:43:28.653 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 2.0568ms
+2025-08-12 10:43:28.653 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:43:28.653 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 400 null application/problem+json; charset=utf-8 12.0973ms
+2025-08-12 10:44:15.150 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 10:44:15.158 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:44:15.158 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:44:15.222 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:46:56.822 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:46:56.853 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:46:56.919 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:46:56.919 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:46:56.919 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:46:57.407 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:46:57.472 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 10:46:57.541 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:46:57.585 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:46:57.696 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:46:57.700 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 299.8548ms
+2025-08-12 10:46:57.717 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:46:57.717 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:46:57.722 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.2248ms
+2025-08-12 10:47:25.447 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27732.1623ms
+2025-08-12 10:47:35.792 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:48:01.066 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25274.2395ms
+2025-08-12 10:49:55.579 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:49:55.611 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:49:55.874 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:49:55.874 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:49:55.874 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:49:56.202 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:49:56.435 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 233.7608ms
+2025-08-12 10:49:56.444 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:49:56.444 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:49:56.449 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.8004ms
+2025-08-12 10:49:56.473 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.746ms
+2025-08-12 10:49:56.516 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:49:56.523 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.0805ms
+2025-08-12 10:49:58.800 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 10:49:58.804 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:49:58.820 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:49:58.944 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:51:26.528 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:51:26.649 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:51:26.814 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:51:26.814 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:51:26.814 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:51:26.876 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:51:27.136 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 263.926ms
+2025-08-12 10:51:27.147 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:51:27.147 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:51:27.151 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.5146ms
+2025-08-12 10:51:27.193 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.2855ms
+2025-08-12 10:51:27.239 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:51:27.257 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.7362ms
+2025-08-12 10:51:31.233 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 10:51:31.239 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:51:31.254 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:51:31.372 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 10:53:45.026 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 10:53:45.055 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 10:53:45.113 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 10:53:45.113 +03:30 [INF] Hosting environment: Development
+2025-08-12 10:53:45.113 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 10:53:45.727 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 10:53:46.023 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 297.7448ms
+2025-08-12 10:53:46.034 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 10:53:46.037 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 10:53:46.040 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.1249ms
+2025-08-12 10:53:46.080 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.0741ms
+2025-08-12 10:53:46.117 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 10:53:46.128 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.443ms
+2025-08-12 10:53:48.350 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 10:53:48.355 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 10:53:48.372 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 10:53:48.504 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:06:34.717 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:06:34.765 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:06:34.885 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:06:34.885 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:06:34.885 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:06:35.194 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:06:35.448 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 257.719ms
+2025-08-12 11:06:35.476 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:06:35.484 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 7.8896ms
+2025-08-12 11:06:35.484 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:06:35.540 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.482ms
+2025-08-12 11:06:35.574 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:06:35.583 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.9685ms
+2025-08-12 11:06:42.901 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:06:42.906 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:06:42.921 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:06:43.035 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:09:10.346 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 147306.5278ms.
+2025-08-12 11:09:10.352 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 11:09:10.357 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 147433.1767ms
+2025-08-12 11:09:10.357 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:09:10.358 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 147456.5955ms
+2025-08-12 11:09:59.631 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:09:59.631 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:09:59.633 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:09:59.667 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:18:27.487 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:18:27.519 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:18:27.679 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:18:27.679 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:18:27.679 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:18:28.324 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:18:28.585 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 262.7144ms
+2025-08-12 11:18:28.594 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:18:28.595 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:18:28.599 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.1255ms
+2025-08-12 11:18:28.636 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.6289ms
+2025-08-12 11:18:28.668 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:18:28.676 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.7322ms
+2025-08-12 11:18:35.088 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:18:35.093 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:18:35.109 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:18:35.235 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:18:39.720 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4481.8137ms.
+2025-08-12 11:18:39.726 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 11:18:39.731 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 4619.3775ms
+2025-08-12 11:18:39.731 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:18:39.732 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 4643.9453ms
+2025-08-12 11:20:49.108 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:20:49.142 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:20:49.199 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:20:49.199 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:20:49.199 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:20:49.995 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:20:50.221 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 228.9961ms
+2025-08-12 11:20:50.229 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:20:50.229 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:20:50.241 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 11.5051ms
+2025-08-12 11:20:50.265 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.8771ms
+2025-08-12 11:20:50.308 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:20:50.315 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.9812ms
+2025-08-12 11:21:04.321 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:21:04.350 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:21:04.406 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:21:04.406 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:21:04.406 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:21:04.788 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:21:05.046 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 262.2742ms
+2025-08-12 11:21:05.068 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:21:05.072 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:21:05.083 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 14.5873ms
+2025-08-12 11:21:05.133 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.9322ms
+2025-08-12 11:21:05.169 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:21:05.176 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.6126ms
+2025-08-12 11:21:08.106 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:21:08.111 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:21:08.127 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:21:08.244 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:33:54.365 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:33:54.400 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:33:54.561 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:33:54.562 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:33:54.562 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:33:55.090 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:33:55.333 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:33:55.333 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:33:55.336 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 255.5054ms
+2025-08-12 11:33:55.338 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.0893ms
+2025-08-12 11:33:55.375 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.2682ms
+2025-08-12 11:33:55.407 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:33:55.415 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.5269ms
+2025-08-12 11:33:58.208 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:33:58.213 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:33:58.229 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:33:58.358 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:35:19.472 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:35:19.506 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:35:19.622 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:35:19.622 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:35:19.623 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:35:19.787 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:35:20.074 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 290.0515ms
+2025-08-12 11:35:20.085 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:35:20.086 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:35:20.089 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.6723ms
+2025-08-12 11:35:20.162 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.8053ms
+2025-08-12 11:35:20.205 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:35:20.219 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.3671ms
+2025-08-12 11:35:23.716 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:35:23.721 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:35:23.738 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:35:23.864 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:38:12.856 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:38:12.898 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:38:13.063 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:38:13.063 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:38:13.063 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:38:13.489 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:38:13.717 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 229.4371ms
+2025-08-12 11:38:13.724 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:38:13.724 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:38:13.729 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.8993ms
+2025-08-12 11:38:13.765 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.7463ms
+2025-08-12 11:38:13.801 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:38:13.808 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.0163ms
+2025-08-12 11:38:26.329 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:38:26.334 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:38:26.351 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:38:26.480 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:40:00.163 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:40:00.197 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:40:00.374 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:40:00.374 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:40:00.375 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:40:00.816 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:40:01.060 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 248.9999ms
+2025-08-12 11:40:01.072 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:40:01.073 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:40:01.078 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.3012ms
+2025-08-12 11:40:01.120 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.9811ms
+2025-08-12 11:40:01.157 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:40:01.185 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.0855ms
+2025-08-12 11:40:02.708 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:40:02.714 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:40:02.731 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:40:02.862 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:43:27.927 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:43:27.959 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:43:28.009 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:43:28.009 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:43:28.009 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:43:28.669 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:43:28.895 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 229.5249ms
+2025-08-12 11:43:28.906 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:43:28.906 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:43:28.911 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.3898ms
+2025-08-12 11:43:28.949 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.0407ms
+2025-08-12 11:43:28.984 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:43:28.993 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.9796ms
+2025-08-12 11:43:31.463 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:43:31.468 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:43:31.486 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:43:31.614 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 11:44:11.313 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 11:44:11.349 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 11:44:11.408 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 11:44:11.409 +03:30 [INF] Hosting environment: Development
+2025-08-12 11:44:11.409 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 11:44:11.977 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 11:44:12.214 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 240.509ms
+2025-08-12 11:44:12.223 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 11:44:12.225 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 11:44:12.228 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 4.5628ms
+2025-08-12 11:44:12.259 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.5164ms
+2025-08-12 11:44:12.295 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 11:44:12.304 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.7982ms
+2025-08-12 11:44:14.705 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 11:44:14.710 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 11:44:14.727 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 11:44:14.866 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:00:57.872 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:00:57.905 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:00:57.958 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:00:57.958 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:00:57.958 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:00:58.585 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:00:58.803 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:00:58.804 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:00:58.804 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 225.0635ms
+2025-08-12 12:00:58.809 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.2126ms
+2025-08-12 12:00:58.844 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.0045ms
+2025-08-12 12:00:58.882 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:00:58.891 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.0352ms
+2025-08-12 12:01:00.861 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:01:00.868 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:01:00.886 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:01:01.014 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:02:01.991 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:02:02.022 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:02:02.131 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:02:02.132 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:02:02.132 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:02:02.352 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:02:02.614 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 263.4455ms
+2025-08-12 12:02:02.624 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:02:02.624 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:02:02.629 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.4094ms
+2025-08-12 12:02:02.671 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.454ms
+2025-08-12 12:02:02.720 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:02:02.748 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.6141ms
+2025-08-12 12:02:05.242 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:02:05.246 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:02:05.262 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:02:05.388 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:06:45.615 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:06:45.644 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:06:45.848 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:06:45.848 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:06:45.848 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:06:46.428 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:06:46.645 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 217.5077ms
+2025-08-12 12:06:46.656 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:06:46.656 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:06:46.663 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.9261ms
+2025-08-12 12:06:46.702 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.6017ms
+2025-08-12 12:06:46.741 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:06:46.749 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.4086ms
+2025-08-12 12:06:48.140 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:06:48.146 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:06:48.162 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:06:48.292 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:07:06.541 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:07:06.569 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:07:06.627 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:07:06.628 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:07:06.628 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:07:07.135 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:07:07.422 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 290.5771ms
+2025-08-12 12:07:07.437 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:07:07.438 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:07:07.444 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.1665ms
+2025-08-12 12:07:07.477 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.1877ms
+2025-08-12 12:07:07.511 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:07:07.523 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.8744ms
+2025-08-12 12:07:09.709 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:07:09.714 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:07:09.731 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:07:09.856 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:18:14.271 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:18:14.301 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:18:14.347 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:18:14.348 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:18:14.348 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:18:14.999 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:18:15.251 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 256.6268ms
+2025-08-12 12:18:15.261 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:18:15.262 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:18:15.268 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.5711ms
+2025-08-12 12:18:15.312 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.6807ms
+2025-08-12 12:18:15.349 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:18:15.356 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.0765ms
+2025-08-12 12:18:34.000 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:18:34.004 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:18:34.020 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:18:34.144 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:18:42.779 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 8630.8824ms.
+2025-08-12 12:18:42.783 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 12:18:42.788 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 8764.2236ms
+2025-08-12 12:18:42.788 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:18:42.788 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 8788.4265ms
+2025-08-12 12:20:23.733 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:20:23.775 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:20:24.026 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:20:24.026 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:20:24.026 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:20:24.394 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:20:24.635 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 245.5273ms
+2025-08-12 12:20:24.646 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:20:24.646 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:20:24.652 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.2215ms
+2025-08-12 12:20:24.680 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.3352ms
+2025-08-12 12:20:24.721 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:20:24.727 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.2822ms
+2025-08-12 12:20:26.587 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:20:26.592 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:20:26.609 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:20:26.740 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:33:01.635 +03:30 [INF] Now listening on: https://localhost:7060
+2025-08-12 12:33:01.664 +03:30 [INF] Now listening on: http://localhost:5047
+2025-08-12 12:33:01.723 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-12 12:33:01.723 +03:30 [INF] Hosting environment: Development
+2025-08-12 12:33:01.723 +03:30 [INF] Content root path: D:\Comparer\Compare.Api
+2025-08-12 12:33:02.304 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/index.html - null null
+2025-08-12 12:33:02.525 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/index.html - 200 null text/html;charset=utf-8 223.5702ms
+2025-08-12 12:33:02.540 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_vs/browserLink - null null
+2025-08-12 12:33:02.540 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - null null
+2025-08-12 12:33:02.546 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 6.5608ms
+2025-08-12 12:33:02.582 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.8097ms
+2025-08-12 12:33:02.616 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - null null
+2025-08-12 12:33:02.622 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7060/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.5106ms
+2025-08-12 12:33:05.182 +03:30 [INF] Request starting HTTP/1.1 POST https://localhost:7060/api/compare/compare - application/json 247
+2025-08-12 12:33:05.187 +03:30 [INF] Executing endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:33:05.205 +03:30 [INF] Route matched with {action = "CompareProducts", controller = "Compare"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CompareProducts(Application.Models.CompareRequest`1[Domain.Product]) on controller Compare.Api.Controllers.CompareController (Compare.Api).
+2025-08-12 12:33:05.336 +03:30 [INF] Executing action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) - Validation state: "Valid"
+2025-08-12 12:33:11.681 +03:30 [INF] Executed action method Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6342.305ms.
+2025-08-12 12:33:11.685 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-12 12:33:11.691 +03:30 [INF] Executed action Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api) in 6482.1961ms
+2025-08-12 12:33:11.691 +03:30 [INF] Executed endpoint 'Compare.Api.Controllers.CompareController.CompareProducts (Compare.Api)'
+2025-08-12 12:33:11.692 +03:30 [INF] Request finished HTTP/1.1 POST https://localhost:7060/api/compare/compare - 200 null text/plain; charset=utf-8 6509.5661ms
