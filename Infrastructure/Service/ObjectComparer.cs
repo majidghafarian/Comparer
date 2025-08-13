@@ -161,11 +161,11 @@ namespace Infrastructure.Service
                         {
                             if (displayNameObject != null)
                             {
-                                changes.Add($"در  {displayNameObject}" + " " + $"{ordinalAttribiute} " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                                changes.Add($"در  {displayNameObject}" + " " + $"{ordinalAttribiute} " + $"{displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                             }
                             else
                             {
-                                changes.Add($"در {ordinalAttribiute} :  {displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                                changes.Add($"در {ordinalAttribiute} :  {displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                             }
                         }
                         else
@@ -173,11 +173,11 @@ namespace Infrastructure.Service
 
                             if (displayNameObject != null)
                             {
-                                changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                                changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                             }
                             else
                             {
-                                changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                                changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                             }
                         }
 
@@ -251,11 +251,11 @@ namespace Infrastructure.Service
                     {
                         if (displayNameObject != null)
                         {
-                            changes.Add($"در  {displayNameObject}" + $"{ordinalAttribiute}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            changes.Add($"در  {displayNameObject}" + $"{ordinalAttribiute}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                         }
                         else
                         {
-                            changes.Add($"در {ordinalAttribiute} :  {displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            changes.Add($"در {ordinalAttribiute} :  {displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                         }
                     }
                     else
@@ -263,11 +263,11 @@ namespace Infrastructure.Service
 
                         if (displayNameObject != null)
                         {
-                            changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                         }
                         else
                         {
-                            changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? " null "}' به '{newValue ?? " null "}'");
                         }
                     }
                 }
