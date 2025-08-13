@@ -1,4 +1,5 @@
 ﻿
+using Domain;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
@@ -23,38 +24,72 @@ namespace Infrastructure.Service
             var displayAttr = prop.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.Name;
         }
-        private static string GetDisplayNameForObject(object prop)
+        private static string GetKey(PropertyInfo prop)
+        {
+            var attribute = Attribute.GetCustomAttribute(prop, typeof(KeyAttribute))
+               as KeyAttribute;
+
+            return attribute?.ToString();
+        }
+        private static string GetValueOrdinal(PropertyInfo prop)
+        {
+            var attribute = Attribute.GetCustomAttribute(prop, typeof(GetValueordinal))
+             as GetValueordinal;
+
+            if (attribute != null)
+            {
+                return attribute.Value;
+            }
+
+            else
+                return string.Empty;
+
+        }
+        private static string GetOrdinal(object value)
+        {
+            var type = value.GetType();
+            var Ordinal = new List<string>();
+            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            foreach (var prop in props)
+            {
+
+                string ordinal = GetValueOrdinal(prop);
+                if (!string.IsNullOrEmpty(ordinal))
+                {
+
+                    var res = prop.GetValue(value);
+                    if (res != null)
+                    {
+                        return ordinal + " " + res.ToString();
+                    }
+                }
+            }
+            return string.Empty;
+        }
+        private static string GetDisplayName(object prop)
         {
             var displayAttr = prop.GetType().GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.Name;
         }
-
-
-
         private static string GetEnumDisplayName(Enum value)
         {
             var member = value.GetType().GetMember(value.ToString()).FirstOrDefault();
             var displayAttr = member?.GetCustomAttribute<DisplayAttribute>();
             return displayAttr?.Name ?? value.ToString();
         }
-
-
-
-
         public static string CompareObjects(object oldObj, object newObj)
-
         {
             var changes = new List<string>();
+
 
             if (oldObj == null || newObj == null)
             {
                 changes.Add("یکی از آبجکت‌ها نال است.");
                 return string.Join(Environment.NewLine, changes);
             }
-
-            var displayNameObject = GetDisplayNameForObject((oldObj));
-
-
+            string ordinalAttribiute = GetOrdinal(oldObj);
+            var displayNameObject = GetDisplayName((oldObj));
             var type = oldObj.GetType();
             if (type.IsEnum)
             {
@@ -66,13 +101,28 @@ namespace Infrastructure.Service
                 {
                     string oldText = GetEnumDisplayName((Enum)oldObj);
                     string newText = GetEnumDisplayName((Enum)newObj);
-                    if (displayNameObject != null)
+                    if (!string.IsNullOrEmpty(ordinalAttribiute))
                     {
-                        changes.Add($"در {displayNameObject}" + " " + $"مقدار تغییر کرده: از '{oldText}' به '{newText}'");
+                        if (displayNameObject != null)
+                        {
+                            changes.Add($" در {displayNameObject}:" + $"{ordinalAttribiute}" + " " + $"مقدار تغییر کرده: از '{oldText}' به '{newText}'");
+                        }
+                        else
+                        {
+                            changes.Add($"در {ordinalAttribiute}" + $"مقدار تغییر کرده: از '{oldText}' به '{newText}'");
+                        }
                     }
                     else
                     {
-                        changes.Add($"مقدار تغییر کرده: از '{oldText}' به '{newText}'");
+
+                        if (displayNameObject != null)
+                        {
+                            changes.Add($" در :  {displayNameObject}" + " " + $"مقدار تغییر کرده: از '{oldText}' به '{newText}'");
+                        }
+                        else
+                        {
+                            changes.Add($"مقدار تغییر کرده: از '{oldText}' به '{newText}'");
+                        }
                     }
                 }
                 return string.Join(Environment.NewLine, changes);
@@ -107,14 +157,31 @@ namespace Infrastructure.Service
 
                         // اگر Display برای خود پراپرتی نبود، از نام enum استفاده کن
                         string fieldName = displayName ?? prop.Name;
-                        if (displayNameObject != null)
+                        if (!string.IsNullOrEmpty(ordinalAttribiute))
                         {
-                            changes.Add($"در {displayNameObject}" + " " + $"{fieldName} تغییر کرده: از '{oldText}' به '{newText}'");
+                            if (displayNameObject != null)
+                            {
+                                changes.Add($"در  {displayNameObject}" + " " + $"{ordinalAttribiute} " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            }
+                            else
+                            {
+                                changes.Add($"در {ordinalAttribiute} :  {displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            }
                         }
                         else
                         {
-                            changes.Add($"{fieldName} تغییر کرده: از '{oldText}' به '{newText}'");
+
+                            if (displayNameObject != null)
+                            {
+                                changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            }
+                            else
+                            {
+                                changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                            }
                         }
+
+
                     }
                     continue;
                 }
@@ -129,13 +196,28 @@ namespace Infrastructure.Service
                     {
                         string oldStatus = oldBool.HasValue && oldBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
                         string newStatus = newBool.HasValue && newBool.Value ? "کاربر فعال" : "کاربر غیرفعال";
-                        if (displayNameObject != null)
+                        if (!string.IsNullOrEmpty(ordinalAttribiute))
                         {
-                            changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+                            if (displayNameObject != null)
+                            {
+                                changes.Add($"در  {displayNameObject}  "+" "+$"{ordinalAttribiute}" + " " + $"{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+                            }
+                            else
+                            {
+                                changes.Add($"{ordinalAttribiute} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+                            }
                         }
                         else
                         {
-                            changes.Add($"{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+
+                            if (displayNameObject != null)
+                            {
+                                changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+                            }
+                            else
+                            {
+                                changes.Add($"{displayName} تغییر کرده: از '{oldStatus}' به '{newStatus}'");
+                            }
                         }
                     }
                     continue;
@@ -159,30 +241,39 @@ namespace Infrastructure.Service
                 if (prop.PropertyType.IsClass && prop.PropertyType != typeof(string))
                 {
                     var nestedChanges = CompareObjects(oldValue, newValue);
-                    changes.AddRange(nestedChanges.Split(Environment.NewLine)); // ✅
+                    changes.AddRange(nestedChanges.Split(Environment.NewLine.ToCharArray())); // ✅
                     continue;
                 }
 
                 if ((oldValue == null && newValue != null) || (oldValue != null && newValue == null) || (oldValue != null && !oldValue.Equals(newValue)))
                 {
-                    Console.WriteLine($"🔍 مقایسه: {prop.Name}, old: '{oldValue}', new: '{newValue}'");
-                    if (displayNameObject != null)
+                    if (!string.IsNullOrEmpty(ordinalAttribiute))
                     {
-                        changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                        if (displayNameObject != null)
+                        {
+                            changes.Add($"در  {displayNameObject}" + $"{ordinalAttribiute}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                        }
+                        else
+                        {
+                            changes.Add($"در {ordinalAttribiute} :  {displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                        }
                     }
                     else
                     {
-                        changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+
+                        if (displayNameObject != null)
+                        {
+                            changes.Add($"در {displayNameObject}" + " " + $"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                        }
+                        else
+                        {
+                            changes.Add($"{displayName} تغییر کرده: از '{oldValue ?? "null"}' به '{newValue ?? "null"}'");
+                        }
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"✅ بدون تغییر: {prop.Name}, مقدار: '{oldValue}'");
                 }
             }
             return string.Join(Environment.NewLine, changes);
         }
-
         private static List<string> CompareFlagsManually(Enum oldValue, Enum newValue)
         {
             var changes = new List<string>();
@@ -211,6 +302,6 @@ namespace Infrastructure.Service
             }
             return changes;
         }
-                      }
+    }
 }
 

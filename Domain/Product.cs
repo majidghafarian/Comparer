@@ -12,12 +12,22 @@ namespace Domain
         active = 0,
         diactive = 1
     }
+    [AttributeUsage(AttributeTargets.Property)]
+    public  class GetValueordinal : Attribute
+    {
+        public readonly string Value;
+
+        public GetValueordinal(string value)
+        {
+            Value = value;
+        }
+    }
     [Display(Name ="جدول محصول")]
     public class Product
     {
         [Key]
         public int Id { get; set; }
-        [Display(Name = "نام محصول")]
+        [Display(Name="نام کالا")]
         public string Name { get; set; }
         [Display(Name = "وضعیت کاربر")]
         public bool IsActive { get; set; }

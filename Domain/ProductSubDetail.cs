@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
+    [Display(Name =  " زیر ویژگی محصول")]
     public class ProductSubDetail
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Display(Name = "زیر ویژگی")]
         public string SubFeature { get; set; }
-
+        [GetValueordinal("ردیف")]
         [Display(Name = "زیر مقدار")]
-        public string SubValue { get; set; }
+        public int? Ordinal { get; set; }
     }
 }
